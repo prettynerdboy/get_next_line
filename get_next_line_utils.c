@@ -6,7 +6,7 @@
 /*   By: anakin <anakin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:21:11 by anakin            #+#    #+#             */
-/*   Updated: 2024/10/01 23:07:21 by anakin           ###   ########.fr       */
+/*   Updated: 2024/10/01 23:19:01 by anakin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,31 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
-char	*ft_strjoin(char *left_str, char *buff)
+char	*ft_strjoin(char *text, char *buff)
 {
 	size_t	i;
 	size_t	j;
 	char	*str;
 
-	if (!left_str)
+	if (!text)
 	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
+		text = (char *)malloc(1 * sizeof(char));
+		text[0] = '\0';
 	}
-	if (!left_str || !buff)
+	if (!text || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen(text) + ft_strlen(buff)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
 	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
+	if (text)
+		while (text[++i] != '\0')
+			str[i] = text[i];
 	while (buff[j] != '\0')
 		str[i++] = buff[j++];
-	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
-	free(left_str);
+	str[ft_strlen(text) + ft_strlen(buff)] = '\0';
+	free(text);
 	return (str);
 }
 
