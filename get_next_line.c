@@ -6,7 +6,7 @@
 /*   By: anakin <anakin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:57:53 by anakin            #+#    #+#             */
-/*   Updated: 2024/10/01 23:12:00 by anakin           ###   ########.fr       */
+/*   Updated: 2024/10/02 00:18:35 by anakin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,13 @@ char	*find_newline(int fd, char *str)
 	{
 		rd_byte = read(fd, buff, BUFFER_SIZE);
 		if (rd_byte == -1)
-		{
 			return (free(str), free(buff), NULL);
-		}
 		buff[rd_byte] = '\0';
 		str = ft_strjoin(str, buff);
 	}
 	free(buff);
 	if (!*str)
-	{
 		return (free(str), NULL);
-	}
 	return (str);
 }
 

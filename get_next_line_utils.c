@@ -6,7 +6,7 @@
 /*   By: anakin <anakin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:21:11 by anakin            #+#    #+#             */
-/*   Updated: 2024/10/01 23:19:01 by anakin           ###   ########.fr       */
+/*   Updated: 2024/10/01 23:22:16 by anakin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
-char	*ft_strjoin(char *text, char *buff)
+char	*ft_strjoin(char *text, char *buff_s)
 {
 	size_t	i;
 	size_t	j;
@@ -62,9 +62,9 @@ char	*ft_strjoin(char *text, char *buff)
 		text = (char *)malloc(1 * sizeof(char));
 		text[0] = '\0';
 	}
-	if (!text || !buff)
+	if (!text || !buff_s)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(text) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen(text) + ft_strlen(buff_s)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
@@ -72,9 +72,9 @@ char	*ft_strjoin(char *text, char *buff)
 	if (text)
 		while (text[++i] != '\0')
 			str[i] = text[i];
-	while (buff[j] != '\0')
-		str[i++] = buff[j++];
-	str[ft_strlen(text) + ft_strlen(buff)] = '\0';
+	while (buff_s[j] != '\0')
+		str[i++] = buff_s[j++];
+	str[ft_strlen(text) + ft_strlen(buff_s)] = '\0';
 	free(text);
 	return (str);
 }
